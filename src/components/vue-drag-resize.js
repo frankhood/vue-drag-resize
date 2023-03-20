@@ -56,6 +56,9 @@ export default {
         parentLimitation: {
             type: Boolean, default: false,
         },
+        rightEdgeExceed: {
+          type: Number, default: null,
+        },
         snapToGrid: {
             type: Boolean, default: false,
         },
@@ -536,9 +539,14 @@ export default {
         calcDragLimitation() {
             const { parentWidth, parentHeight } = this;
 
+            let threshold = this.width;
+            if (this.rightEdgeExceed !== null && !isNaN(this.rightEdgeExceed)) {
+              threshold = this.rightEdgeExceed;
+            }
+
             return {
-                left: { min: 0, max: parentWidth - this.width },
-                right: { min: 0, max: parentWidth - this.width },
+                left: { min: 0, max: parentWidth - threshold },
+                right: { min: 0, max: parentWidth - threshold },
                 top: { min: 0, max: parentHeight - this.height },
                 bottom: { min: 0, max: parentHeight - this.height },
             };
