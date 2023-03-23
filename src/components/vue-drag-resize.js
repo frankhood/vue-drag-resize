@@ -540,7 +540,7 @@ export default {
             const { parentWidth, parentHeight } = this;
 
             let threshold = this.width;
-            if (this.rightEdgeExceed !== null && !isNaN(this.rightEdgeExceed)) {
+            if (this.rightEdgeExceed !== null && !isNaN(this.rightEdgeExceed) && this.rightEdgeExceed > this.width) {
               threshold = this.rightEdgeExceed;
             }
 
