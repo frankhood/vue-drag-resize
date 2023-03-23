@@ -541,7 +541,7 @@ export default {
 
             let threshold = this.width;
             if (this.rightEdgeExceed !== null && !isNaN(this.rightEdgeExceed)) {
-              if (this.rightEdgeExceed > this.width) {
+              if (this.width > this.rightEdgeExceed) {
                 threshold = this.rightEdgeExceed;
               }
             }
